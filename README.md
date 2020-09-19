@@ -21,7 +21,7 @@ services:
 ## AirPlay
 
 ```sh
-apt install avahi-daemon
+apt install -y avahi-daemon
 systemctl enable avahi-daemon
 systemctl restart avahi-daemon
 ```
