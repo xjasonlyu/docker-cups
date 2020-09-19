@@ -1,0 +1,21 @@
+name: Publish CUPS Docker Image
+
+on: push
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          platforms: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
+          repository: xjasonlyu/cups
+          tags: latest
