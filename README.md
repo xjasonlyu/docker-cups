@@ -1,1 +1,1 @@
-# cups-docker
+# CUPS Docker Image
