@@ -1,4 +1,5 @@
-FROM ubuntu:focal
+ARG BASE_DISTRO=ubuntu:focal
+FROM ${BASE_DISTRO}
 
 LABEL MAINTAINER="xjasonlyu"
 

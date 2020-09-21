@@ -27,9 +27,21 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and Push
+      - name: Build and Push (Ubuntu)
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          platforms: linux/amd64,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
+          build-args: BASE_DISTRO=ubuntu:focal
+          tags: |
+            xjasonlyu/cups:latest
+            xjasonlyu/cups:ubuntu
+
+      - name: Build and Push (Debian)
         uses: docker/build-push-action@v2
         with:
           push: true
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
-          tags: xjasonlyu/cups:latest
+          build-args: BASE_DISTRO=debian:buster-slim
+          tags: |
+            xjasonlyu/cups:debian
