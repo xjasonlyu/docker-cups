@@ -92,7 +92,7 @@ vim /etc/udev/rules.d/10-reload.cups.rules
 Put following line in that file
 
 ```sh
-ACTION=="add", SUBSYSTEM=="usb", ATTRS{product}=="ML-1670 Series", RUN+="/usr/bin/docker restart cups"
+ACTION=="add", SUBSYSTEM=="usb", ATTRS{product}=="ML-1670 Series", RUN+="/bin/sh -c 'docker ps -f name=cups | grep cups && docker restart cups'"
 ```
 
 Reload udev rules
