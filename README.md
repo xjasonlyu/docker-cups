@@ -18,7 +18,7 @@ services:
     container_name: cups
 ```
 
-## AirPlay Support
+## AirPrint Support
 
 Install `avahi-daemon` service
 
