@@ -28,6 +28,13 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: xjasonlyu
+          password: ${{ secrets.CR_PAT }}
+
       - name: Build and Push (Ubuntu)
         uses: docker/build-push-action@v2
         with:
@@ -37,6 +44,8 @@ jobs:
           tags: |
             xjasonlyu/cups:latest
             xjasonlyu/cups:ubuntu
+            ghcr.io/xjasonlyu/cups:latest
+            ghcr.io/xjasonlyu/cups:ubuntu
 
       - name: Build and Push (Debian)
         uses: docker/build-push-action@v2
@@ -46,3 +55,4 @@ jobs:
           build-args: BASE_DISTRO=debian:buster-slim
           tags: |
             xjasonlyu/cups:debian
+            ghcr.io/xjasonlyu/cups:debian
