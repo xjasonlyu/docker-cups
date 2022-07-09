@@ -1,7 +1,7 @@
 ARG BASE_DISTRO=ubuntu:focal
 FROM ${BASE_DISTRO}
 
-LABEL MAINTAINER="xjasonlyu"
+LABEL org.opencontainers.image.source="https://github.com/xjasonlyu/docker-cups"
 
 ARG DEBIAN_FRONTEND="noninteractive"
 
