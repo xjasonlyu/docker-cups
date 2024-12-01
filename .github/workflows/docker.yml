@@ -4,15 +4,14 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'Dockerfile'
-      - 'etc-cups/**'
+      - "Dockerfile"
+      - "etc-cups/**"
 
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -40,7 +39,7 @@ jobs:
         with:
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
-          build-args: BASE_DISTRO=ubuntu:jammy
+          build-args: BASE_DISTRO=ubuntu:noble
           tags: |
             xjasonlyu/cups:latest
             xjasonlyu/cups:ubuntu
@@ -52,7 +51,7 @@ jobs:
         with:
           push: true
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
-          build-args: BASE_DISTRO=debian:bullseye-slim
+          build-args: BASE_DISTRO=debian:bookworm-slim
           tags: |
             xjasonlyu/cups:debian
             ghcr.io/xjasonlyu/cups:debian

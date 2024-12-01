@@ -1,4 +1,4 @@
-ARG BASE_DISTRO=ubuntu:jammy
+ARG BASE_DISTRO=ubuntu:noble
 FROM ${BASE_DISTRO}
 
 LABEL org.opencontainers.image.source="https://github.com/xjasonlyu/docker-cups"
